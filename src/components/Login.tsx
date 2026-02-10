@@ -35,7 +35,7 @@ export function Login({ onLogin }: LoginProps) {
           </div>
           <h1 className="text-2xl font-bold text-gray-900">M-Scout</h1>
           <p className="text-sm text-gray-500 mt-2">
-            Silakan login untuk melanjutkan
+            Mandiri Smart Credit Outreach Unit
           </p>
         </div>
 
