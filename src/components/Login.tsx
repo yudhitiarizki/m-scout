@@ -1,28 +1,28 @@
-import { useState } from "react";
-import { Lock, User as UserIcon } from "lucide-react";
-import { User } from "../App";
-import { mockUsers } from "../data/mockData";
+import { useState } from 'react';
+import { Lock, User as UserIcon } from 'lucide-react';
+import { User } from '../App';
+import { mockUsers } from '../data/mockData';
 
 type LoginProps = {
   onLogin: (user: User) => void;
 };
 
 export function Login({ onLogin }: LoginProps) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
+    setError('');
 
     // Simple mock authentication
-    const user = mockUsers.find((u) => u.email === email);
-
-    if (user && password === "password123") {
+    const user = mockUsers.find(u => u.email === email);
+    
+    if (user && password === 'password123') {
       onLogin(user);
     } else {
-      setError("Email atau password salah");
+      setError('Email atau password salah');
     }
   };
 
@@ -33,10 +33,8 @@ export function Login({ onLogin }: LoginProps) {
           <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <Lock className="w-8 h-8 text-blue-600" />
           </div>
-          <h1 className="text-2xl font-bold text-gray-900">M-Scout</h1>
-          <p className="text-sm text-gray-500 mt-2">
-            Mandiri Smart Credit Outreach Unit
-          </p>
+          <h1 className="text-2xl font-bold text-gray-900">Monitoring Kredit Cabang</h1>
+          <p className="text-sm text-gray-500 mt-2">Silakan login untuk melanjutkan</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -93,9 +91,7 @@ export function Login({ onLogin }: LoginProps) {
         </form>
 
         <div className="mt-6 pt-6 border-t border-gray-200">
-          <p className="text-xs text-gray-500 text-center mb-3">
-            Demo Accounts:
-          </p>
+          <p className="text-xs text-gray-500 text-center mb-3">Demo Accounts:</p>
           <div className="space-y-2 text-xs">
             <div className="bg-gray-50 p-2 rounded">
               <p className="font-semibold">Manager:</p>

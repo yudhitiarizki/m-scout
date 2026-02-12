@@ -25,12 +25,10 @@ export function LoanDetailTab({ customer }: LoanDetailTabProps) {
     const breakdown = [];
     const monthlyInterestRate = loan.interestRate / 12 / 100;
     const principal = loan.amount;
+    const monthlyInterest = principal * monthlyInterestRate; // Fixed monthly interest
+    const principalPayment = loan.monthlyPayment - monthlyInterest;
     
     for (let i = 1; i <= loan.tenor; i++) {
-      const remainingPrincipal = principal - ((principal / loan.tenor) * (i - 1));
-      const interest = remainingPrincipal * monthlyInterestRate;
-      const principalPayment = loan.monthlyPayment - interest;
-      
       const paymentDate = new Date(loan.startDate);
       paymentDate.setMonth(paymentDate.getMonth() + i);
       
@@ -38,7 +36,7 @@ export function LoanDetailTab({ customer }: LoanDetailTabProps) {
         month: i,
         date: paymentDate.toLocaleDateString('id-ID', { month: 'short', year: 'numeric' }),
         principal: principalPayment,
-        interest: interest,
+        interest: monthlyInterest, // Same interest every month
         total: loan.monthlyPayment,
         isPaid: i <= monthsPassed
       });

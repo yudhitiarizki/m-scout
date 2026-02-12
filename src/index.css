@@ -546,10 +546,6 @@
     margin-top: calc(var(--spacing) * 8);
   }
 
-  .mr-3 {
-    margin-right: calc(var(--spacing) * 3);
-  }
-
   .mb-1 {
     margin-bottom: calc(var(--spacing) * 1);
   }
@@ -572,10 +568,6 @@
 
   .mb-8 {
     margin-bottom: calc(var(--spacing) * 8);
-  }
-
-  .ml-2 {
-    margin-left: calc(var(--spacing) * 2);
   }
 
   .block {
@@ -797,12 +789,6 @@
     margin-inline-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-x-reverse)));
   }
 
-  :where(.space-x-8 > :not(:last-child)) {
-    --tw-space-x-reverse: 0;
-    margin-inline-start: calc(calc(var(--spacing) * 8) * var(--tw-space-x-reverse));
-    margin-inline-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-x-reverse)));
-  }
-
   :where(.divide-y > :not(:last-child)) {
     --tw-divide-y-reverse: 0;
     border-bottom-style: var(--tw-border-style);
@@ -1002,8 +988,8 @@
     background-image: linear-gradient(var(--tw-gradient-stops));
   }
 
-  .from-blue-500 {
-    --tw-gradient-from: var(--color-blue-500);
+  .from-blue-50 {
+    --tw-gradient-from: var(--color-blue-50);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
 
@@ -1012,8 +998,8 @@
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
 
-  .to-blue-700 {
-    --tw-gradient-to: var(--color-blue-700);
+  .to-blue-100 {
+    --tw-gradient-to: var(--color-blue-100);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
 
@@ -1044,10 +1030,6 @@
 
   .p-8 {
     padding: calc(var(--spacing) * 8);
-  }
-
-  .px-1 {
-    padding-inline: calc(var(--spacing) * 1);
   }
 
   .px-2 {
@@ -1369,6 +1351,12 @@
   }
 
   @media (hover: hover) {
+    .hover\:bg-green-200:hover {
+      background-color: var(--color-green-200);
+    }
+  }
+
+  @media (hover: hover) {
     .hover\:bg-green-700:hover {
       background-color: var(--color-green-700);
     }
@@ -1377,6 +1365,12 @@
   @media (hover: hover) {
     .hover\:bg-purple-50:hover {
       background-color: var(--color-purple-50);
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:bg-red-200:hover {
+      background-color: var(--color-red-200);
     }
   }
 

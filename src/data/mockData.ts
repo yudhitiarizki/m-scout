@@ -40,6 +40,8 @@ export const mockCustomers: Customer[] = [
     hasLoan: true,
     savings: 150000000,
     assignedTo: 'u2',
+    creditScore: 'Kol 1',
+    promoActive: true,
     loanHistory: [
       {
         id: 'loan1',
@@ -246,6 +248,8 @@ export const mockCustomers: Customer[] = [
     hasLoan: true,
     savings: 280000000,
     assignedTo: 'u2',
+    creditScore: 'Kol 1',
+    promoActive: true,
     loanHistory: [
       {
         id: 'loan3',
@@ -351,6 +355,7 @@ export const mockCustomers: Customer[] = [
     hasLoan: false,
     savings: 85000000,
     assignedTo: 'u3',
+    creditScore: 'Kol 2',
     loanHistory: [
       {
         id: 'loan4',
@@ -393,6 +398,8 @@ export const mockCustomers: Customer[] = [
     hasLoan: true,
     savings: 95000000,
     assignedTo: 'u3',
+    creditScore: 'Kol 2',
+    promoActive: false,
     loanHistory: [
       {
         id: 'loan5',
@@ -464,6 +471,7 @@ export const mockCustomers: Customer[] = [
     monthlyIncome: 15000000,
     hasLoan: false,
     savings: 45000000,
+    creditScore: 'Kol 3',
     loanHistory: [],
     livinTransactions: [
       { date: '2025-02-08', amount: 200000, description: 'Transfer Saudara' }
@@ -486,6 +494,8 @@ export const mockCustomers: Customer[] = [
     hasLoan: true,
     savings: 175000000,
     assignedTo: 'u4',
+    creditScore: 'Kol 1',
+    promoActive: true,
     loanHistory: [
       {
         id: 'loan6',
@@ -601,6 +611,8 @@ export const mockCustomers: Customer[] = [
     hasLoan: true,
     savings: 120000000,
     assignedTo: 'u2',
+    creditScore: 'Kol 2',
+    promoActive: true,
     loanHistory: [
       {
         id: 'loan7',
@@ -652,6 +664,7 @@ export const mockCustomers: Customer[] = [
     hasLoan: false,
     savings: 98000000,
     assignedTo: 'u3',
+    creditScore: 'Kol 3',
     loanHistory: [],
     livinTransactions: [
       { date: '2025-02-08', amount: 1200000, description: 'Beli Material Design' }
@@ -674,6 +687,8 @@ export const mockCustomers: Customer[] = [
     hasLoan: true,
     savings: 200000000,
     assignedTo: 'u4',
+    creditScore: 'Kol 1',
+    promoActive: true,
     loanHistory: [
       {
         id: 'loan9',
@@ -722,6 +737,7 @@ export const mockCustomers: Customer[] = [
     monthlyIncome: 38000000,
     hasLoan: false,
     savings: 185000000,
+    creditScore: 'Kol 1',
     loanHistory: [
       {
         id: 'loan10',

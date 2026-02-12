@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft, Phone, DollarSign } from 'lucide-react';
+import { ArrowLeft, Phone } from 'lucide-react';
 import { Customer, User } from '../App';
 import { BiodataTab } from './tabs/BiodataTab';
 import { DocumentsTab } from './tabs/DocumentsTab';
@@ -7,7 +7,6 @@ import { VisitTab } from './tabs/VisitTab';
 import { FinancialTab } from './tabs/FinancialTab';
 import { LoanDetailTab } from './tabs/LoanDetailTab';
 import { PromoTab } from './tabs/PromoTab';
-import { ApplyLoanModal } from './modals/ApplyLoanModal';
 
 type CustomerDetailProps = {
   customer: Customer;
@@ -17,7 +16,6 @@ type CustomerDetailProps = {
 
 export function CustomerDetail({ customer, currentUser, onBack }: CustomerDetailProps) {
   const [activeTab, setActiveTab] = useState<'biodata' | 'documents' | 'visit' | 'financial' | 'loan' | 'promo'>('biodata');
-  const [showApplyLoanModal, setShowApplyLoanModal] = useState(false);
 
   const handleWhatsAppNotification = () => {
     if (!customer.activeLoan) {
@@ -39,12 +37,6 @@ export function CustomerDetail({ customer, currentUser, onBack }: CustomerDetail
     window.open(`https://wa.me/${whatsappPhone}?text=${message}`, '_blank');
   };
 
-  const handleApplyLoan = (loanData: any) => {
-    console.log('Applying loan:', loanData);
-    alert(`Pengajuan kredit ${loanData.type} sebesar Rp ${loanData.amount.toLocaleString('id-ID')} berhasil!`);
-    setShowApplyLoanModal(false);
-  };
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -64,15 +56,6 @@ export function CustomerDetail({ customer, currentUser, onBack }: CustomerDetail
               </div>
             </div>
             <div className="flex gap-2">
-              {!customer.activeLoan && (
-                <button
-                  onClick={() => setShowApplyLoanModal(true)}
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                >
-                  <DollarSign className="w-4 h-4" />
-                  Ajukan Kredit
-                </button>
-              )}
               {customer.activeLoan && (
                 <button
                   onClick={handleWhatsAppNotification}
@@ -165,18 +148,9 @@ export function CustomerDetail({ customer, currentUser, onBack }: CustomerDetail
           {activeTab === 'visit' && <VisitTab customer={customer} currentUser={currentUser} />}
           {activeTab === 'financial' && <FinancialTab customer={customer} />}
           {activeTab === 'loan' && customer.activeLoan && <LoanDetailTab customer={customer} />}
-          {activeTab === 'promo' && customer.activeLoan && <PromoTab customer={customer} />}
+          {activeTab === 'promo' && customer.activeLoan && <PromoTab customer={customer} currentUser={currentUser} />}
         </div>
       </div>
-
-      {/* Apply Loan Modal */}
-      {showApplyLoanModal && (
-        <ApplyLoanModal
-          customerName={customer.name}
-          onClose={() => setShowApplyLoanModal(false)}
-          onSubmit={handleApplyLoan}
-        />
-      )}
     </div>
   );
 }

@@ -30,6 +30,8 @@ export type Customer = {
   visitDocumentation: Visit[];
   activeLoan?: ActiveLoan;
   assignedTo?: string;
+  creditScore: 'Kol 1' | 'Kol 2' | 'Kol 3' | 'Kol 4' | 'Kol 5';
+  promoActive?: boolean;
 };
 
 export type LoanHistory = {
@@ -93,11 +95,12 @@ export type PaymentHistory = {
 
 export type PromoSetting = {
   threshold1: number;
-  discount1: number;
+  cashback1: number;
   threshold2: number;
-  discount2: number;
+  cashback2: number;
   threshold3: number;
-  discount3: number;
+  cashback3: number;
+  type: 'count' | 'value'; // count = jumlah transaksi, value = nilai transaksi
 };
 
 export default function App() {

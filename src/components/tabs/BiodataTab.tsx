@@ -1,8 +1,19 @@
-import { User, MapPin, Briefcase, DollarSign, CreditCard } from 'lucide-react';
+import { User, MapPin, Briefcase, DollarSign, CreditCard, Award } from 'lucide-react';
 import { Customer } from '../../App';
 
 type BiodataTabProps = {
   customer: Customer;
+};
+
+const getCreditScoreColor = (score: string) => {
+  switch (score) {
+    case 'Kol 1': return 'bg-green-100 text-green-700';
+    case 'Kol 2': return 'bg-blue-100 text-blue-700';
+    case 'Kol 3': return 'bg-yellow-100 text-yellow-700';
+    case 'Kol 4': return 'bg-orange-100 text-orange-700';
+    case 'Kol 5': return 'bg-red-100 text-red-700';
+    default: return 'bg-gray-100 text-gray-700';
+  }
 };
 
 export function BiodataTab({ customer }: BiodataTabProps) {
@@ -67,6 +78,18 @@ export function BiodataTab({ customer }: BiodataTabProps) {
                   <span className="text-gray-600">Belum Pernah Pinjam</span>
                 )}
               </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-3">
+            <Award className="w-5 h-5 text-gray-400 mt-1" />
+            <div className="flex-1">
+              <p className="text-sm text-gray-500">Kolektibilitas / Skor Kredit</p>
+              <div className="mt-1">
+                <span className={`px-3 py-1 text-sm rounded-full font-semibold ${getCreditScoreColor(customer.creditScore)}`}>
+                  {customer.creditScore}
+                </span>
+              </div>
             </div>
           </div>
         </div>
